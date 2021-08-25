@@ -135,7 +135,7 @@ https://www.markdownguide.org/getting-started/
 
 What does "cd" stand for?
 
- - Answer:
+ - Answer: Change Directory
 
 Did you get stuck at any point or become confused with your console? (yes/no) If so, what happened? How did you solve it?
 
