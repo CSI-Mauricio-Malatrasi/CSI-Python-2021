@@ -135,14 +135,14 @@ Evaluate the following code. Is the code written correctly? What would be the co
         print('This message has a syntax error!")
         print(Churrigueresco)
 
- - Answer:
+ - Answer: 
 
 Evaluate the following code. Is the code written correctly? What would be the correct code?
         someNumber=360
         print(' The Number is someNumber ')
 Expected:  The Number is 360
 
- - Answer:
+ - Answer: someNumber=(360)
 
 Define a function that takes 2 or more string parameters and prints a single line using them as part of a functional string. The function may do anything you chose but the function name and parameter names must be representative of what they are.
 
@@ -160,6 +160,7 @@ Which code returns the length of the string s0:
 s0 = "What is my length? Store it as a number in a variable."
 
  - Answer:
+ 
 
 How do you create a substring in python?
 Create a substring of s1 containing only my name. Store it in a variable called ss1.
