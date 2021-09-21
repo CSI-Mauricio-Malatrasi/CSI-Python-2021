@@ -1,3 +1,6 @@
+
+
+
 var:str = "regular string"
 myNumber:float = 3.5
 
@@ -13,3 +16,4 @@ meal=input("What was your Lunch?")
 print(f"{meal}")
 meal=input("Have you had dinner?")
 print(f"Sadly, {meal}")
+
