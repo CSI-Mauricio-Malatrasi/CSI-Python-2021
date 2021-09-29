@@ -71,10 +71,24 @@ print(f"Computer selected: {computerChoice}")
 Give a python example for each logic operator in the module image.
 
  - Answers:
-   - OR: inclusive
-   - AND: exclusive
-   - NOT: not other
+   - OR: 
+   x = 9
+   y = 87
 
+   if(x>0 or y<0):
+    print:("imagine")
+   This does print imagine, because x is greater than 0 and 0 is not greater than y
+   - AND:
+   
+   if(x>0 and y>0):
+   print:("imagine")
+   This does not print imagine, although x is greater than 0, 0 is not greater than y
+
+   - NOT:
+
+   if(not x==0 and not y==0):
+   print:("imagine")
+   This does print imagine because of the laws of "not"
 
 Type down any class notes below this sentence:
 
