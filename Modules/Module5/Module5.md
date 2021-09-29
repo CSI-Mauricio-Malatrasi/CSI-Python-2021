@@ -71,9 +71,9 @@ print(f"Computer selected: {computerChoice}")
 Give a python example for each logic operator in the module image.
 
  - Answers:
-   - OR:
-   - AND: 
-   - NOT: 
+   - OR: inclusive
+   - AND: exclusive
+   - NOT: not other
 
 
 Type down any class notes below this sentence:
