@@ -67,10 +67,38 @@ cryptocoin:RandomCryptoCoin = RandomCryptoCoin(**r)
 
 # print(cryptocoin.coin_name)
 
-IncorrectLeters = []
+IncorrectLetters = []
 
 print(len(cryptocoin.coin_name) * " _")
 
-print(cryptocoin.coin_name[0])
+# print(cryptocoin.coin_name[0])
 
 # if input == cryptocoin.coin_name[0]
+
+specialChar = ["!", "@", "#", "$", "%", "^", "&", "*", "(", ")", "-", "+", "[", "]", "{", "}", "="]
+
+def getInput():
+   while(True):
+      guess=input("What is your guess?")
+      if guess.isnumeric()== True :
+         print("Must be a letter.")
+         continue
+
+      if len(guess) !=1 :
+         print("Must be only one letter!")
+         continue
+
+      # for i in specialChar:
+      if not guess.isalpha():
+         print("Can't include special characters.")
+         continue
+
+      if (guess in IncorrectLetters):
+         print("You already used this letter.")
+         continue
+
+      IncorrectLetters.append(guess)
+      return guess
+
+print(getInput())
+
