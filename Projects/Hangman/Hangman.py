@@ -40,7 +40,7 @@ HANGMAN_PICS = ['''
       / \  |
           ===''']
 counter = 0
-print(HANGMAN_PICS[counter])
+# print(HANGMAN_PICS[counter])
 # counter+=1
 # print(HANGMAN_PICS[counter])
 # counter+=1
@@ -67,7 +67,7 @@ cryptocoin:RandomCryptoCoin = RandomCryptoCoin(**r)
 
 # print(cryptocoin.coin_name)
 
-IncorrectLetters = []
+AttemptedLetters = []
 
 print(len(cryptocoin.coin_name) * " _")
 
@@ -93,12 +93,28 @@ def getInput():
          print("Can't include special characters.")
          continue
 
-      if (guess in IncorrectLetters):
+      if (guess in AttemptedLetters):
          print("You already used this letter.")
          continue
 
-      IncorrectLetters.append(guess)
+      AttemptedLetters.append(guess)
       return guess
 
-print(getInput())
 
+def printword():
+   temp:str= ""
+   len(cryptocoin.coin_name)
+   for letter in cryptocoin.coin_name :
+      print(letter)
+      letter in(AttemptedLetters)
+      if letter not in AttemptedLetters :
+         temp+="_"
+      else: 
+         temp+= letter
+
+   return temp
+
+while True :
+   print(HANGMAN_PICS[counter])
+   getInput()
+   printword()
