@@ -3,6 +3,7 @@ import json, ssl
 import urllib.request
 from RandomCryptoCoin import RandomCryptoCoin
 
+#Hangman pics
 HANGMAN_PICS = ['''
        +---+
            |
@@ -52,8 +53,7 @@ counter = 0
 # counter+=1
 # print(HANGMAN_PICS[counter])
 # counter+=1
-# print(HANGMAN_PICS[counter])
-# counter+=1
+
 
 # This is discouraged but it will avoid certificate validation (prevents error)
 ssl._create_default_https_context = ssl._create_unverified_context
@@ -79,7 +79,7 @@ specialChar = ["!", "@", "#", "$", "%", "^", "&", "*", "(", ")", "-", "+", "[", 
 
 def getInput():
    while(True):
-      guess=input("What is your guess?")
+      guess=input("What is your guess?").lower()
       if guess.isnumeric()== True :
          print("Must be a letter.")
          continue
@@ -96,6 +96,11 @@ def getInput():
       if (guess in AttemptedLetters):
          print("You already used this letter.")
          continue
+      
+      # if letter not in my word, increment counter
+      if guess not in cryptocoin.coin_name:
+         counter = counter + 1
+         print(HANGMAN_PICS[counter])
 
       AttemptedLetters.append(guess)
       return guess
@@ -103,18 +108,27 @@ def getInput():
 
 def printword():
    temp:str= ""
-   len(cryptocoin.coin_name)
-   for letter in cryptocoin.coin_name :
-      print(letter)
-      letter in(AttemptedLetters)
-      if letter not in AttemptedLetters :
-         temp+="_"
-      else: 
+   len(cryptocoin.coin_name.lower())
+   for letter in cryptocoin.coin_name.lower() :
+      # print(letter)
+      
+      if letter in AttemptedLetters:
          temp+= letter
-
-   return temp
+      else: 
+         temp+= "_ "
+   print(temp)
+   # return temp
 
 while True :
    print(HANGMAN_PICS[counter])
    getInput()
    printword()
+   
+   # break condition
+
+   # if guessed :
+   #    break
+   # if counter == len(HANGMAN_PICS):
+   #    print("LOST")
+   #    break
+
