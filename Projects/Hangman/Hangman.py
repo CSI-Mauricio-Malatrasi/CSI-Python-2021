@@ -94,7 +94,7 @@ def printword():  #Defining print word
       else: 
          temp+= "_ "
    print(temp)
-   # return temp
+   return temp
 
   # if letter not in my word, increment counter
 def printStep():
@@ -104,7 +104,8 @@ def printStep():
       if letter not in cryptocoin.coin_name.lower():
          counter = counter + 1
    print(HANGMAN_PICS[counter])
-   print(f"Used Letters: {AttemptedLetters}")
+   print(str(AttemptedLetters).replace('\'','').replace('[','').replace(']',''))
+   # print(f"Used Letters: {AttemptedLetters}")
 
 
 while True:                      #Making a loop so if you lost, it'll start you over again with a new word.
@@ -114,13 +115,19 @@ while True:                      #Making a loop so if you lost, it'll start you 
    cryptocoin:RandomCryptoCoin = RandomCryptoCoin(**r)
    while True :
       
-
-      printword()
-      getInput()
       printStep()
+      temp = printword()
+      getInput()
+      
       
       # break condition 
+      if(temp == printword):
+         print("YOU'VE WON!")             #If you guess the word correctly, the game tells you you've won
+         print("---------------------")   #The division of the word you guessed correctly and a new word
+         break
+
       if(counter == 6):                #Making it so if you guess 6 times incorrectly, it'll end the game and print you've lost.
          print("YOU'VE LOST")          #After this breaks, it'll start over again with a new word and it'll start the hangman all over.
+         print(f"The word was: {cryptocoin.coin_name}")
          print("---------------------")
          break
