@@ -1,4 +1,3 @@
-from operator import truediv
 import pygame #imports pygame
 import time     #imports time
 import random   #imports random
@@ -8,8 +7,8 @@ pygame.init()   #starts game
 #Colors RGB, Red Green Blue
 white = (255, 255, 255) #white color
 black=(0,0,0)  #black color
-red=(255,0,0)   #red color
-blue=(0,0,255) #blue color
+red=(213, 50, 80)   #red color
+blue=(50, 153, 213) #blue color
 green = (0, 255, 0) #green color
 yellow = (255, 255, 102) #yellow color
 
@@ -27,9 +26,16 @@ snake_speed=15      #speed of the snake
 font_style = pygame.font.SysFont("bahnschrift", 25) #Font size for the game
 score_font = pygame.font.SysFont("comicsansms", 35)
 
+
+def Your_score(score):  #Defines your_score
+    value = score_font.render("Your Score: " + str(score), True, yellow)
+    dis.blit(value, [0, 0])
+
+
 def our_snake(snake_block, snake_list):     #Defines our_snake
     for x in snake_list:                    #Draws every block in the snake, everytime you eat the food.
         pygame.draw.rect(dis, black, [x[0], x[1], snake_block, snake_block])
+
 
 def message(msg,color):         #Defines message
     mesg = font_style.render(msg, True, color) #Sets the style, with the height/width of the message.
@@ -57,7 +63,7 @@ def gameLoop():     #Creates a function
         while game_close == True:
             dis.fill(blue) #full blue background
             message("You Lost! Press Q-Quit or C-Play Again", red)  #Shows you a message and lets you try again or quit
-            
+            Your_score(Length_of_snake - 1)
             pygame.display.update() #Updates the game
 
             for event in pygame.event.get():    #Makes "Q" for quitting the game and "C" to try again
@@ -86,7 +92,7 @@ def gameLoop():     #Creates a function
                     x1_change = 0
     
         if x1 >= dis_width or x1 < 0 or y1 >= dis_height or y1 < 0:     #Makes it so if you do those things, it makes game_over true.
-            game_over = True
+            game_close = True
         x1 += x1_change
         y1 += y1_change
         dis.fill(blue)    #full blue background
@@ -103,6 +109,7 @@ def gameLoop():     #Creates a function
                 game_close = True
 
         our_snake(snake_block, snake_List)
+        Your_score(Length_of_snake - 1)
 
         pygame.display.update() #Updates the game
 
